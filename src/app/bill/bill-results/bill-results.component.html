@@ -1,0 +1,32 @@
+<div class="row">
+  <div class="col-xs-12 col-sm-10 col-md-6 cold-sm-offset-1 col-md-offset-3 text-center">
+    <h2>Your Results</h2>
+    <button class="btn btn-success" (click)="onStartSetData()">Set Data</button>
+    <button class="btn btn-danger" (click)="onClearData()">Clear Data on Server</button>
+    <button class="btn btn-primary" (click)="onGetResults()">Get Results</button>
+    <hr>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-12 col-sm-10 col-md-6 cold-sm-offset-1 col-md-offset-3 text-center">
+    <div class="list-group">
+      <h1>Your Work Days: {{ user.days }}</h1>
+      <h1>Your Income Per Day: {{ user.income }}</h1>
+      <h1>Your Total Income Net: {{ user.days * user.income * 0.82}}</h1>
+    </div>
+    <hr>
+    <div class="loader" *ngIf="!billData && !didFail">Loading...</div>
+    <div class="row">
+      <div class="col-xs-12 col-sm-10 col-md-6 cold-sm-offset-1 col-md-offset-3 text-center">
+        <div class="alert alert-danger" *ngIf="didFail">
+          An error occurred, please try again!
+        </div>
+      </div>
+    </div>
+    <ul class="list-group">
+      <li class="list-group-item" *ngFor="let data of billData" [ngClass]="getListGroupItemClass(data)">
+        Days: {{ data.days }} | Income: {{ data.income }}
+      </li>
+    </ul>
+  </div>
+</div>
