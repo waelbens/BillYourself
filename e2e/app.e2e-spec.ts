@@ -1,10 +1,10 @@
-import { CompareMyselfPage } from './app.po';
+import { BillyourselfPage } from './app.po';
 
-describe('compare-myself App', () => {
-  let page: CompareMyselfPage;
+describe('bill-yourself App', () => {
+  let page: billyourselfPage;
 
   beforeEach(() => {
-    page = new CompareMyselfPage();
+    page = new billyourselfPage();
   });
 
   it('should display message saying app works', () => {

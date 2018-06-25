@@ -6,13 +6,9 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { SignupComponent } from './user/signup/signup.component';
 import { SigninComponent } from './user/signin/signin.component';
-import { CompareComponent } from './compare/compare.component';
 import { AppRoutingModule } from './app-routing.module';
 import { AuthService } from './user/auth.service';
-import { CompareService } from './compare/compare.service';
 import { BillService } from './bill/bill.service';
-import { CompareInputComponent } from './compare/compare-input/compare-input.component';
-import { CompareResultsComponent } from './compare/compare-results/compare-results.component';
 import { BillComponent } from './bill/bill.component';
 import { BillInputComponent } from './bill/bill-input/bill-input.component';
 import { BillResultsComponent } from './bill/bill-results/bill-results.component';
@@ -22,9 +18,6 @@ import { BillResultsComponent } from './bill/bill-results/bill-results.component
     AppComponent,
     SignupComponent,
     SigninComponent,
-    CompareComponent,
-    CompareInputComponent,
-    CompareResultsComponent,
     BillComponent,
     BillInputComponent,
     BillResultsComponent
@@ -35,7 +28,7 @@ import { BillResultsComponent } from './bill/bill-results/bill-results.component
     HttpModule,
     AppRoutingModule
   ],
-  providers: [AuthService, CompareService, BillService],
+  providers: [AuthService, BillService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

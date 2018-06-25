@@ -91,7 +91,7 @@
         "variable-declaration": "nospace"
       }
     ],
-    "typeof-compare": true,
+    "typeof-bill": true,
     "unified-signatures": true,
     "variable-name": false,
     "whitespace": [
