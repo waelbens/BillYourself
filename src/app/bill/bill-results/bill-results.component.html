@@ -1,32 +1,181 @@
-<div class="row">
-  <div class="col-xs-12 col-sm-10 col-md-6 cold-sm-offset-1 col-md-offset-3 text-center">
-    <h2>Your Results</h2>
-    <button class="btn btn-success" (click)="onStartSetData()">Set Data</button>
-    <button class="btn btn-danger" (click)="onClearData()">Clear Data on Server</button>
-    <button class="btn btn-primary" (click)="onGetResults()">Get Results</button>
-    <hr>
-  </div>
-</div>
-<div class="row">
-  <div class="col-xs-12 col-sm-10 col-md-6 cold-sm-offset-1 col-md-offset-3 text-center">
-    <div class="list-group">
-      <h1>Your Work Days: {{ user.days }}</h1>
-      <h1>Your Income Per Day: {{ user.income }}</h1>
-      <h1>Your Total Income Net: {{ user.days * user.income * 0.82}}</h1>
-    </div>
-    <hr>
-    <div class="loader" *ngIf="!billData && !didFail">Loading...</div>
-    <div class="row">
-      <div class="col-xs-12 col-sm-10 col-md-6 cold-sm-offset-1 col-md-offset-3 text-center">
-        <div class="alert alert-danger" *ngIf="didFail">
-          An error occurred, please try again!
-        </div>
+<!DOCTYPE html>
+ <html class="no-js" lang="fr">
+  <head>
+        <meta name="robots" content="noindex, nofollow" />
+        <meta name="charset" content="utf-8" />
+        <script src="html2pdf.bundle.min.js"></script>
+    <title>BillYourself</title>
+  </head>
+
+
+  <body>
+
+    <div id="content">
+
+      <div class="wrap clearfix">
+
+        <div class="mainContent aside">
+
+          <div id="main">
+
+<div class="mod shadow document" >
+  <div class="inner">
+    <div id="informations">
+      <div class="header" id="facture">
+        <strong>
+                      Facture                 </strong>
       </div>
+
+
+      <div class="authorRecap" id="coords">
+
+        <strong>Wael Ben Salah</strong><br><br>
+        <strong>wael.ben.salah@gmail.com</strong><br><br>
+        <p class="address" id="adrss">
+        <strong>1 BOULEVARD JOURDAN 75014 PARIS</strong><br><br>
+        </p>
+
+      </div>
+
+      <div class="recipientRecap">
+                  <div class="recipient">
+      <p class="definition">Client:</p>
+    <h1 class="fullname">NTI-Solutions</h1>
+  <p class="address">
+          Espace Cristal, le Technoparc, 22 rue Gustave Eiffel 78306 POISSY Cedex<br>
+                  </p>
+  </div>              </div>
     </div>
-    <ul class="list-group">
-      <li class="list-group-item" *ngFor="let data of billData" [ngClass]="getListGroupItemClass(data)">
-        Days: {{ data.days }} | Income: {{ data.income }}
-      </li>
-    </ul>
+
+
+    <table class="service">
+
+      <thead>
+        <tr>
+          <th colspan="2" class="price">Montant en Euros HT</th>
+        </tr>
+      </thead>
+
+      <tfoot>
+
+<tr class="price-ht" >
+  <th class="description">Total brut</th>
+  <td class="price">
+    {{ user.days * user.income }}  </td>
+</tr>
+
+
+  <tr class="tva">
+    <th class="description">
+      TVA
+    </th>
+    <td class="price">0,00 </td>
+  </tr>
+
+<tr class="price-ttc">
+  <th class="description">Net à payer</th>
+  <td class="price">{{ user.days * user.income }} </td>
+</tr>      </tfoot>
+
+      <tbody>
+
+          <tr>
+            <td colspan="2" class="services-edit">
+              <ul>
+                <li>
+
+
+  <div class="preview-service">
+    <table class="service">
+
+      <tbody>
+
+<tr>
+  <td class="description has-unit-price">
+    <p class="name"><strong>Application SAAS</strong></p>
+    <p class="description"></p>
+    <p class="unit-price">
+      {{ user.days }} jours à {{ user.income }} €    </p>
+  </td>
+  <td class="price">
+    {{ user.days * user.income }}   </td>
+</tr>      </tbody>
+    </table>
   </div>
-</div>
+
+                </li>
+              </ul>
+			</td>
+          </tr>
+
+      </tbody>
+
+    </table>
+     </div>
+    <div class="final-price-details">
+<ul class="price-details">
+    <li class="author">
+    <div class="inner">
+      <table>
+
+        <tbody>
+          <tr>
+            <th>
+              Montant à reverser
+                          </th>
+            <td><span class="value">{{ user.days * user.income }} </span> €</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="noTva">
+            TVA non applicable, article 293B du Code Général des Impôts
+        </p>
+
+      </li>
+</ul></div>
+
+    </div>
+        </div><!-- end main -->
+
+
+          <div id="aside">
+
+  <!--      <ul class="mod links btn">
+      <li class="btn">
+        <a class="popup freeze" href="#send-invoice-283731">
+          Envoyer la facture        </a>
+      </li>
+    </ul> -->
+
+
+  <ul class="mod links">
+        <li class="download">
+      <button (click)="makePDF()">Télécharger la facture </button>
+    </li>
+
+                  <li>
+        <a class="popup" href="#create-modele-from-invoice-283731" (click)="onStartSetData()">Créer une autre facture</a>
+      </li>
+
+              <li class="delete">
+        <a class="popup" href="#delete-invoice-283731" (click)="onClearData()">Supprimer la facture</a>
+      </li>
+          </ul>
+
+
+          </div><!-- end aside -->
+
+        </div><!-- end mainContent -->
+
+      </div><!-- end wrap -->
+    </div><!-- end content -->
+
+<!--    <div id="footer">
+      <div class="wrap clearfix">
+        <p class="aside">BillYourself tous droits réservés.</p>
+      </div>
+    </div> -->
+  </body>
+
+</html>

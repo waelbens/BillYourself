@@ -3,6 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { BillService } from '../bill.service';
 import { BillData } from '../bill-data.model';
 
+import html2pdf from 'html2pdf.js';
+
 @Component({
   selector: 'app-bill-results',
   templateUrl: './bill-results.component.html',
@@ -62,4 +64,11 @@ export class BillResultsComponent implements OnInit {
   onClearData() {
     this.billService.onDeleteData();
   }
+
+   makePDF() {
+
+     var element = document.getElementById('main');
+     html2pdf(element);
+
+
 }
