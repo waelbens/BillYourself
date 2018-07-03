@@ -66,8 +66,8 @@ export class BillResultsComponent implements OnInit {
   }
 
    makePDF() {
-     var element = document.getElementById('main');
-     html2pdf(element);
+     const pdf_element = document.getElementById('main');
+     html2pdf(pdf_element);
 }
 
 }
