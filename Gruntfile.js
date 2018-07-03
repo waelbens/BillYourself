@@ -35,13 +35,23 @@ module.exports = function (grunt) {
                   }
               }
           },
+          concat: 
+	  {
+              dist: 
+		  {
+                  src: [
+                    'src/*.ts'
+                    ],
+                  dest: 'dist/main.concat.ts'
+            	  }
+          },
           uglify:
          {
               target:
               {
                   files: 
                   {
-                    'dist/main.min.ts': ['src/m.ts']
+                   // 'dist/main.min.ts': ['dist/main.concat.ts']
                   }
               }
           },
@@ -60,7 +70,8 @@ module.exports = function (grunt) {
 
     grunt.loadNpmTasks("grunt-autoprefixer");
     grunt.loadNpmTasks('grunt-contrib-cssmin');
+    grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-imagemin');
-    grunt.registerTask("default", ['autoprefixer', 'cssmin', 'uglify', 'imagemin']);
+    grunt.registerTask("default", ['autoprefixer', 'cssmin', 'concat', 'uglify', 'imagemin']);
 };
