@@ -151,15 +151,15 @@
 
   <ul class="mod links">
         <li class="download">
-      <button (click)="makePDF()">Télécharger la facture </button>
+      <button id="download_bill" (click)="makePDF()">Télécharger la facture </button>
     </li>
 
                   <li>
-        <a class="popup" href="#create-modele-from-invoice-283731" (click)="onStartSetData()">Créer une autre facture</a>
+        <a  id="new_bill" (click)="onStartSetData()">Créer une autre facture</a>
       </li>
 
               <li class="delete">
-        <a class="popup" href="#delete-invoice-283731" (click)="onClearData()">Supprimer la facture</a>
+        <a id="delete_bill" (click)="onClearData()">Supprimer la facture</a>
       </li>
           </ul>
 
