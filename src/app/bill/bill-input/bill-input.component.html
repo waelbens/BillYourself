@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col-xs-12 col-sm-10 col-md-6 cold-sm-offset-1 col-md-offset-3 text-center">
-    <h3>Set your Data</h3>
+    <h3>Set your bill details</h3> <br>
   </div>
 </div>
 <div class="row">
@@ -9,7 +9,7 @@
       <div class="form-group">
         <label
           for="days"
-          class="control-label">Days</label>
+          class="control-label">Quantity (Days)</label>
         <input
           type="number"
           id="days"
@@ -30,6 +30,42 @@
           class="form-control text-center"
           required>
       </div>
+      <div class="form-group">
+        <label
+          for="client_name"
+          class="control-label">Client Name</label>
+        <input
+          type="text"
+          id="client_name"
+          name="client_name"
+          ngModel
+          class="form-control text-center"
+          required>
+      </div>
+      <div class="form-group">
+        <label
+          for="client_address"
+          class="control-label">Client Address</label>
+        <input
+          type="string"
+          id="client_address"
+          name="client_address"
+          ngModel
+          class="form-control text-center"
+          required>
+      </div>
+      <div class="form-group">
+        <label
+          for="bill_description"
+          class="control-label">Description</label>
+        <input
+          type="string"
+          id="bill_description"
+          name="bill_description"
+          ngModel
+          class="form-control text-center"
+          required>
+      </div>
       <button class="btn btn-primary" type="submit" id="submit_btn" [disabled]="billForm.invalid">Submit</button>
     </form>
   </div>
@@ -38,7 +74,7 @@
 <div class="row">
   <div class="col-xs-12 col-sm-10 col-md-6 cold-sm-offset-1 col-md-offset-3 text-center">
     <div class="alert alert-danger" *ngIf="couldNotLoadData">An error occurred, please try again or submit new data!</div>
-  <!--  <button class="btn btn-primary" (click)="onFetchStoredData()">I already stored data on the server!</button> -->
+    <button class="btn btn-primary" (click)="onStoreData()">Data stored on the server!</button> 
     <div class="loader" *ngIf="isLoading">Loading...</div>
   </div>
 </div>

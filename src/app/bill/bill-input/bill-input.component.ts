@@ -32,7 +32,10 @@ export class BillInputComponent implements OnInit {
   onSubmit() {
     const data: BillData = {
       days: this.form.value.days as number,
-      income: this.form.value.income as number
+      income: this.form.value.income as number,
+      client_name: this.form.value.client_name as string,
+      client_address: this.form.value.client_address as string,
+      bill_description: this.form.value.bill_description as string
     };
     this.billService.onStoreData(data);
   }

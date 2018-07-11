@@ -35,8 +35,8 @@
     <div class="recipientRecap">
       <div class="recipient">
        <p class="definition"> Client: </p>
-       <h1 class="fullname"> NTI-Solutions </h1>
-       <p class="address"> Espace Cristal, le Technoparc, 22 rue Gustave Eiffel 78306 POISSY Cedex <br><br> </p>
+       <h1 class="fullname"> {{user.client_name}} </h1>
+       <p class="address"> {{user.client_address}} <br><br> </p>
      </div>
     </div>
    </div>
@@ -46,7 +46,7 @@
 
       <thead>
         <tr>
-          <th colspan="2" class="price">Montant (€) </th>
+          <th colspan="2" class="price"> <br> <br> Montant (€) </th>
         </tr>
       </thead>
 
@@ -78,28 +78,26 @@
               <ul>
                 <li>
 
-
   <div class="preview-service">
     <table class="service">
 
       <tbody>
-
-<tr>
-  <td class="description has-unit-price">
-    <p class="name"><strong>Application SAAS</strong></p>
-    <p class="description"></p>
-    <p class="unit-price">
-      {{ user.days }} jours à {{ user.income }} €    </p>
-  </td>
-  <td class="price">
-    {{ user.days * user.income }}   </td>
-</tr>      </tbody>
+        <tr>
+          <td class="description has-unit-price">
+            <p class="name"><strong>{{user.bill_description}}</strong></p>
+            <p class="description"></p>
+            <p class="unit-price">
+              {{ user.days }} jours à {{ user.income }} €    </p>
+          </td>
+          <td class="price">  {{ user.days * user.income }}   </td>
+        </tr>
+      </tbody>
     </table>
   </div>
 
                 </li>
               </ul>
-			</td>
+			      </td>
           </tr>
 
       </tbody>
@@ -142,7 +140,6 @@
       </li>
     </ul> -->
 
-
   <ul class="mod links">
         <li class="download">
       <button id="download_bill" (click)="makePDF()">Télécharger la facture </button>
@@ -165,11 +162,6 @@
       </div><!-- end wrap -->
     </div><!-- end content -->
 
-<!--    <div id="footer">
-      <div class="wrap clearfix">
-        <p class="aside">BillYourself tous droits réservés.</p>
-      </div>
-    </div> -->
   </body>
 
 </html>
