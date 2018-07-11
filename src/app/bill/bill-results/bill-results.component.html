@@ -22,44 +22,38 @@
   <div class="inner">
     <div id="informations">
       <div class="header" id="facture">
-        <strong>
-                      Facture                 </strong>
+        <strong> Facture </strong>
       </div>
-
 
       <div class="authorRecap" id="coords">
-
-        <strong>Wael Ben Salah</strong><br><br>
-        <strong>wael.ben.salah@gmail.com</strong><br><br>
-        <p class="address" id="adrss">
-        <strong>1 BOULEVARD JOURDAN 75014 PARIS</strong><br><br>
-        </p>
-
+      <p class="definition"> Préstataire: </p>
+        <strong> Wael Ben Salah </strong> <br>
+        <h1> wael.ben.salah@gmail.com </h1>
+        <p class="address" id="adrss"> 1 BOULEVARD JOURDAN 75014 PARIS </p>
       </div>
 
-      <div class="recipientRecap">
-                  <div class="recipient">
-      <p class="definition">Client:</p>
-    <h1 class="fullname">NTI-Solutions</h1>
-  <p class="address">
-          Espace Cristal, le Technoparc, 22 rue Gustave Eiffel 78306 POISSY Cedex<br>
-                  </p>
-  </div>              </div>
+    <div class="recipientRecap">
+      <div class="recipient">
+       <p class="definition"> Client: </p>
+       <h1 class="fullname"> NTI-Solutions </h1>
+       <p class="address"> Espace Cristal, le Technoparc, 22 rue Gustave Eiffel 78306 POISSY Cedex <br><br> </p>
+     </div>
     </div>
+   </div>
 
 
     <table class="service">
 
       <thead>
         <tr>
-          <th colspan="2" class="price">Montant en Euros HT</th>
+          <th colspan="2" class="price">Montant (€) </th>
         </tr>
       </thead>
 
       <tfoot>
 
 <tr class="price-ht" >
-  <th class="description">Total brut</th>
+  <th class="description">Total HT</th>
   <td class="price">
     {{ user.days * user.income }}  </td>
 </tr>
@@ -69,12 +63,12 @@
     <th class="description">
       TVA
     </th>
-    <td class="price">0,00 </td>
+    <td class="price"> {{ (user.days * user.income * 0.2).toFixed(2) }} </td>
   </tr>
 
 <tr class="price-ttc">
-  <th class="description">Net à payer</th>
-  <td class="price">{{ user.days * user.income }} </td>
+  <th class="description">Total TTC</th>
+  <td class="price">{{ (user.days * user.income * 1.2).toFixed(2) }} </td>
 </tr>      </tfoot>
 
       <tbody>
@@ -123,13 +117,13 @@
             <th>
               Montant à reverser
                           </th>
-            <td><span class="value">{{ user.days * user.income }} </span> €</td>
+            <td><span class="value">{{ (user.days * user.income * 1.2).toFixed(2) }} </span> €</td>
           </tr>
         </tbody>
       </table>
     </div>
     <p class="noTva">
-            TVA non applicable, article 293B du Code Général des Impôts
+            TVA 20%, article 283-2 du Code Général des Impôts
         </p>
 
       </li>
